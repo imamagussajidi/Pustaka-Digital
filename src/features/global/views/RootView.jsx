@@ -4,12 +4,12 @@ import Footer from "../components/Footer";
 
 const RootView = ({ Menus }) => {
   return (
-    <>
+    <div className="min-h-screen flex flex-col justify-between">
       <Navbar Menus={Menus} />
       <Outlet />
       <ScrollRestoration />
       <Footer Menus={Menus} />
-    </>
+    </div>
   );
 };
 

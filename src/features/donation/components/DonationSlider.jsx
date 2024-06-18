@@ -7,45 +7,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
-import donation1 from "@/core/assets/buku1.png";
-import donation2 from "@/core/assets/coba.png";
-import donation3 from "@/core/assets/coba.png";
-import donation4 from "@/core/assets/coba.png";
-import donation5 from "@/core/assets/coba.png";
 import useResponsive from "@/features/global/hooks/useResponsive";
 
-const slider = [
-  {
-    title: "Transparansi sepenuhnya",
-    description:
-      "Transparan dengan bentuk dan kuantitas buku yang didonasikan.",
-    img: donation1,
-  },
-  {
-    title: "Terbagi rata",
-    description:
-      "Buku yang didonasikan terbagi secara rata sesuai kebutuhan komunitas.",
-    img: donation2,
-  },
-  {
-    title: "Dapat dipercaya",
-    description:
-      "Donasi buku Anda dapat dipercaya karena kami bersifat transparan dari berbagai aspek.",
-    img: donation3,
-  },
-  {
-    title: "Buku untuk Masa Depan",
-    description:
-      "Setiap buku yang Anda donasikan menanamkan benih pengetahuan untuk masa depan yang cerah.",
-    img: donation4,
-  },
-  {
-    title: "Membuka Jendela Dunia",
-    description:
-      "Dengan mendonasikan buku, Anda membantu membuka jendela dunia bagi banyak orang.",
-    img: donation5,
-  },
-];
+import slider from "@/core/utils/slider"
 
 const DonationSlider = () => {
   const { isTablet } = useResponsive();
@@ -68,7 +32,7 @@ const DonationSlider = () => {
           <SwiperSlide key={index}>
             <div className="flex flex-col mb-10 items-center">
               <img
-                src={item.img}
+                src={item.image}
                 alt="Dapat dipercaya"
                 className="rounded-lg w-[200px] h-[200px] object-cover mb-4"
               />
