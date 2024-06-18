@@ -1,5 +1,6 @@
 import books from "@/core/assets/buku1.png";
-import Card from "../components/Card";
+import Card from "@/features/global/components/Card";
+import ListBooks from "@/features/global/container/ListBooks";
 
 const PopulerBooks = () => {
   return (
@@ -8,17 +9,7 @@ const PopulerBooks = () => {
       id="popular"
     >
       <h1 className="text-3xl font-bold">Buku Terpopuler</h1>
-      <div className="flex flex-wrap items-center justify-center w-full">
-        {Array.from({ length: 8 }, (_, index) => (
-          <Card
-            key={index}
-            src={books}
-            pembuat={"Imam Sajordi"}
-          >
-            Helloooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-          </Card>
-        ))}
-      </div>
+      <ListBooks list={Array.from({ length: 8 })} />
     </div>
   );
 };

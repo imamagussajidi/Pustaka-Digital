@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import Item from "./item";
 import { APP_CONFIG } from "@/core/config/app";
-import Section from "../Section";
+import Section from "../../container/Section";
+import { useLocation } from "react-router-dom";
 
 const Navbar = ({ Menus }) => {
+  const location = useLocation();
   const [isScroll, setIsScroll] = useState(false);
   const [isActive, setIsActive] = useState("Home");
   
@@ -20,6 +22,14 @@ const Navbar = ({ Menus }) => {
     return () => window.removeEventListener("scroll", listenScrollEvent);
   }, []);
 
+  useEffect(() => {
+    Menus.forEach((item) => {
+      if (item.to === location.pathname + location.hash) {
+        setIsActive(item.name);
+      }
+    })
+  }, [location]);
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-[999]">
       <Section
@@ -35,7 +45,6 @@ const Navbar = ({ Menus }) => {
                 key={index}
                 name={item.name}
                 to={item.to}
-                onClick={() => setIsActive(item.name)}
                 className={`hover:scale-[1.2] py-[1px] px-3 flex justify-center relative duration-600 before:content-[''] before:z-10 before:absolute before:w-0 before:h-full before:duration-300 hover:before:w-[80%] before:border-b ${isScroll ? "before:border-white" : "before:border-black"} ${isActive === item.name ? "before:w-[80%] scale-[1.1]" : ""}`}
               />
             ))}

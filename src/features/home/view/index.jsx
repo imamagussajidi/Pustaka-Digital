@@ -1,7 +1,7 @@
-import Section from "@/features/global/components/Section";
+import Section from "@/features/global/container/Section";
 import Header from "../components/Header";
 import PopulerBooks from "../container/PopulerBooks";
-import Footer from "../components/Footer";
+// import Footer from "@/features/global/components/Footer";
 
 const Home = () => {
   // how to call api?
@@ -13,7 +13,7 @@ const Home = () => {
       <Section>
         <PopulerBooks />
       </Section>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
